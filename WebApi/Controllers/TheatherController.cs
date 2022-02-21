@@ -37,63 +37,46 @@ namespace WebApi.Controllers {
     [HttpGet("{id}")]
     public IActionResult GetById(int id){
       GetTheatherDetailQuery query = new GetTheatherDetailQuery(_context, _mapper);
-      try {
-        query.TheatherId = id;
-        GetTheatherDetailQueryValidator validator = new GetTheatherDetailQueryValidator();
-        validator.ValidateAndThrow(query);
-        TheatherDetailViewModel result = query.Handle();
-        return Ok(result);
-      }
-      catch(Exception ex) {
-        return BadRequest(ex.Message );
-      }
+      query.TheatherId = id;
+      GetTheatherDetailQueryValidator validator = new GetTheatherDetailQueryValidator();
+      validator.ValidateAndThrow(query);
+      TheatherDetailViewModel result = query.Handle();
+      return Ok(result);
     }
 
 
     [HttpPost]
     public IActionResult AddTheather([FromBody] CreateTheatherModel newTheater) {
       CreateTheatherCommand command = new CreateTheatherCommand(_context, _mapper);
-      try {  
-        command.Model = newTheater;
-        CreateTheatherCommandValidator validator = new CreateTheatherCommandValidator();
-        validator.ValidateAndThrow(command);
-        command.Handle();   
-      }
-      catch(Exception e) {
-        return BadRequest(e.Message);
-      }
+      command.Model = newTheater;
+      CreateTheatherCommandValidator validator = new CreateTheatherCommandValidator();
+      validator.ValidateAndThrow(command);
+      command.Handle();   
+
       return Ok();
     }
 
     [HttpPut("{id}")]
     public IActionResult UpdateTheather(int id, [FromBody] UpdateTheatherModel newTheather) {
       UpdateTheatherCommand command = new UpdateTheatherCommand(_context);
-      try {
-        command.Model = newTheather;
-        command.TheatherId = id;
-        UpdateTheatherCommandValidator validator = new UpdateTheatherCommandValidator();
-        validator.ValidateAndThrow(command);
-        command.Handle();
-        return Ok();
-      }
-      catch(Exception ex) {
-        return BadRequest(ex.Message); 
-      }
+
+      command.Model = newTheather;
+      command.TheatherId = id;
+      UpdateTheatherCommandValidator validator = new UpdateTheatherCommandValidator();
+      validator.ValidateAndThrow(command);
+      command.Handle();
+      return Ok();
     }
 
     [HttpDelete("{id}")]
     public IActionResult DeleteTheather(int id) {
       DeleteTheatherCommand command = new DeleteTheatherCommand(_context);
-      try {
-        command.TheatherId = id;
-        DeleteTheatherCommandValidator validator = new DeleteTheatherCommandValidator();
-        validator.ValidateAndThrow(command);
-        command.Handle();
-        return Ok();
-      }
-      catch(Exception ex) {
-        return BadRequest(ex.Message);
-      }
+      command.TheatherId = id;
+      DeleteTheatherCommandValidator validator = new DeleteTheatherCommandValidator();
+      validator.ValidateAndThrow(command);
+      command.Handle();
+      return Ok();
+      
     }
   }
 }

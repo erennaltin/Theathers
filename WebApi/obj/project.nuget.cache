@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HuMPNPTh6FA0fSCge5oyZRkamAOZzWqiKf6clwAQTUrz/5Oe/47HID/KR5OVH54W5dgyXwB9V+TRW7uCO+aJQQ==",
+  "dgSpecHash": "haN723t16pt0mqy+4hPEk9GmhRk6iOD17yeCxBcnqvLNjDtPMv9I48HSGU1AosdHJKKTXVwIhqFmX4+Ais1Dkw==",
   "success": true,
   "projectFilePath": "/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/WebApi.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "/Users/erenaltin/.nuget/packages/microsoft.extensions.options/6.0.0/microsoft.extensions.options.6.0.0.nupkg.sha512",
     "/Users/erenaltin/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "/Users/erenaltin/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/erenaltin/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/Users/erenaltin/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "/Users/erenaltin/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/Users/erenaltin/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

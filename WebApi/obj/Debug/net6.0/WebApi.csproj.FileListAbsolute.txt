@@ -59,3 +59,4 @@ D:/All/Dotnet/Theathers/WebApi/obj/Debug/net6.0/WebApi.genruntimeconfig.cache
 /Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/AutoMapper.dll
 /Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/FluentValidation.dll
+/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/Newtonsoft.Json.dll
