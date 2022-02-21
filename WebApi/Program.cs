@@ -2,6 +2,7 @@ using WebApi.DBOperations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using WebApi.Middlewares;
+using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TheathersDbContext>(options => options.UseInMemoryDatabase(databaseName:"TheathersDb"));
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddSingleton<ILoggerService,ConsoleLogger>();
 
 var app = builder.Build();
 
