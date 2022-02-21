@@ -1,7 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
 using WebApi.Models;
 using WebApi.DBOperations;
 using WebApi.DBOperations.TheatherOperations.GetTheathers;
+using WebApi.DBOperations.TheatherOperations.GetTheatherDetail;
+using WebApi.DBOperations.TheatherOperations.CreateTheather;
+using static WebApi.DBOperations.TheatherOperations.CreateTheather.CreateTheatherCommand;
+using WebApi.DBOperations.TheatherOperations.UpdateTheather;
+using static WebApi.DBOperations.TheatherOperations.UpdateTheather.UpdateTheatherCommand;
+using WebApi.DBOperations.TheatherOperations.DeleteTheather;
 
 namespace WebApi.Controllers {
   [ApiController]
@@ -9,67 +16,74 @@ namespace WebApi.Controllers {
   public class TheatherController : ControllerBase {
     
     private readonly TheathersDbContext _context;
+    private readonly IMapper _mapper;
 
-    public TheatherController (TheathersDbContext context) {
+    public TheatherController(TheathersDbContext context, IMapper mapper)
+    {
       _context = context;
+      _mapper = mapper;
     }
 
 
     [HttpGet]
     public IActionResult GetTheathers(){
-      GetTheathersQuery query = new GetTheathersQuery(_context);
+      GetTheathersQuery query = new GetTheathersQuery(_context, _mapper);
       var result = query.Handle();
       return Ok(result);
     }
 
     [HttpGet("{id}")]
-    public TheatherModel GetById(int id){
-      var theather = _context.Theathers.SingleOrDefault(x => x.Id == id);
-      return theather;
+    public IActionResult GetById(int id){
+      GetTheatherDetailQuery query = new GetTheatherDetailQuery(_context, _mapper);
+      query.TheatherId = id;
+      try {
+        TheatherDetailViewModel result = query.Handle();
+        return Ok(result);
+      }
+      catch(Exception ex) {
+        return BadRequest(ex.Message );
+      }
     }
 
 
     [HttpPost]
-    public IActionResult AddTheather([FromBody] TheatherModel newTheater) {
-      var theather = _context.Theathers.SingleOrDefault(x => x.Name == newTheater.Name);
-      if (theather != null) {
-        return BadRequest();
+    public IActionResult AddTheather([FromBody] CreateTheatherModel newTheater) {
+      CreateTheatherCommand command = new CreateTheatherCommand(_context, _mapper);
+      try {  
+        command.Model = newTheater;
+        command.Handle();   
       }
-
-      _context.Theathers.Add(newTheater);
-      _context.SaveChanges();
-
+      catch(Exception e) {
+        return BadRequest(e.Message);
+      }
       return Ok();
     }
 
     [HttpPut("{id}")]
-    public IActionResult UpdateTheather(int id, [FromBody] TheatherModel newTheather) {
-      var theather = _context.Theathers.SingleOrDefault(x => x.Id == id);
-      if (theather == null) {
-        return BadRequest();
+    public IActionResult UpdateTheather(int id, [FromBody] UpdateTheatherModel newTheather) {
+      UpdateTheatherCommand command = new UpdateTheatherCommand(_context);
+      command.Model = newTheather;
+      command.TheatherId = id;
+      try {
+        command.Handle();
+        return Ok();
       }
-
-      theather.Name = newTheather.Name != default ? newTheather.Name : theather.Name;
-      theather.Description = newTheather.Description != default ? newTheather.Description : theather.Description;
-      theather.AvailableSeats = newTheather.AvailableSeats != default ? newTheather.AvailableSeats : theather.AvailableSeats;
-      theather.Date = newTheather.Date != default ? newTheather.Date : theather.Date;
-      theather.TheatherId = newTheather.TheatherId != default ? newTheather.TheatherId : theather.TheatherId;
-      theather.Cost = newTheather.Cost != default ? newTheather.Cost : theather.Cost;
-    
-      _context.SaveChanges();
-      return Ok();
+      catch(Exception ex) {
+        return BadRequest(ex.Message); 
+      }
     }
 
     [HttpDelete("{id}")]
     public IActionResult DeleteTheather(int id) {
-      var theather = _context.Theathers.SingleOrDefault(x => x.Id == id);
-      if (theather == null) {
-        return BadRequest();
+      DeleteTheatherCommand command = new DeleteTheatherCommand(_context);
+      command.TheatherId = id;
+      try {
+        command.Handle();
+        return Ok();
       }
-
-      _context.Theathers.Remove(theather);
-      _context.SaveChanges();
-      return Ok();
+      catch(Exception ex) {
+        return BadRequest(ex.Message);
+      }
     }
   }
 }

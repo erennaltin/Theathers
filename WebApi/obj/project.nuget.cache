@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Fn6psU9SydIGeRBWzl/400cAaKIQDSAa71eKlLTj4Y697zuA1FczZ/G8N6vLXOZqF3/2gtPR+v1L+ThJjUSiKQ==",
+  "dgSpecHash": "HuMPNPTh6FA0fSCge5oyZRkamAOZzWqiKf6clwAQTUrz/5Oe/47HID/KR5OVH54W5dgyXwB9V+TRW7uCO+aJQQ==",
   "success": true,
   "projectFilePath": "/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/WebApi.csproj",
   "expectedPackageFiles": [
+    "/Users/erenaltin/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
+    "/Users/erenaltin/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "/Users/erenaltin/.nuget/packages/fluentvalidation/10.3.6/fluentvalidation.10.3.6.nupkg.sha512",
+    "/Users/erenaltin/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/erenaltin/.nuget/packages/microsoft.entityframeworkcore/6.0.2/microsoft.entityframeworkcore.6.0.2.nupkg.sha512",
     "/Users/erenaltin/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.2/microsoft.entityframeworkcore.abstractions.6.0.2.nupkg.sha512",
     "/Users/erenaltin/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.2/microsoft.entityframeworkcore.analyzers.6.0.2.nupkg.sha512",
