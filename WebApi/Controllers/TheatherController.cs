@@ -9,6 +9,8 @@ using static WebApi.DBOperations.TheatherOperations.CreateTheather.CreateTheathe
 using WebApi.DBOperations.TheatherOperations.UpdateTheather;
 using static WebApi.DBOperations.TheatherOperations.UpdateTheather.UpdateTheatherCommand;
 using WebApi.DBOperations.TheatherOperations.DeleteTheather;
+using FluentValidation.Results;
+using FluentValidation;
 
 namespace WebApi.Controllers {
   [ApiController]
@@ -35,8 +37,10 @@ namespace WebApi.Controllers {
     [HttpGet("{id}")]
     public IActionResult GetById(int id){
       GetTheatherDetailQuery query = new GetTheatherDetailQuery(_context, _mapper);
-      query.TheatherId = id;
       try {
+        query.TheatherId = id;
+        GetTheatherDetailQueryValidator validator = new GetTheatherDetailQueryValidator();
+        validator.ValidateAndThrow(query);
         TheatherDetailViewModel result = query.Handle();
         return Ok(result);
       }
@@ -51,6 +55,8 @@ namespace WebApi.Controllers {
       CreateTheatherCommand command = new CreateTheatherCommand(_context, _mapper);
       try {  
         command.Model = newTheater;
+        CreateTheatherCommandValidator validator = new CreateTheatherCommandValidator();
+        validator.ValidateAndThrow(command);
         command.Handle();   
       }
       catch(Exception e) {
@@ -62,9 +68,11 @@ namespace WebApi.Controllers {
     [HttpPut("{id}")]
     public IActionResult UpdateTheather(int id, [FromBody] UpdateTheatherModel newTheather) {
       UpdateTheatherCommand command = new UpdateTheatherCommand(_context);
-      command.Model = newTheather;
-      command.TheatherId = id;
       try {
+        command.Model = newTheather;
+        command.TheatherId = id;
+        UpdateTheatherCommandValidator validator = new UpdateTheatherCommandValidator();
+        validator.ValidateAndThrow(command);
         command.Handle();
         return Ok();
       }
@@ -76,8 +84,10 @@ namespace WebApi.Controllers {
     [HttpDelete("{id}")]
     public IActionResult DeleteTheather(int id) {
       DeleteTheatherCommand command = new DeleteTheatherCommand(_context);
-      command.TheatherId = id;
       try {
+        command.TheatherId = id;
+        DeleteTheatherCommandValidator validator = new DeleteTheatherCommandValidator();
+        validator.ValidateAndThrow(command);
         command.Handle();
         return Ok();
       }
