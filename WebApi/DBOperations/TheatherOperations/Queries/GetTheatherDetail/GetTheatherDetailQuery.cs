@@ -19,6 +19,8 @@ namespace WebApi.DBOperations.TheatherOperations.Queries.GetTheatherDetail {
       if (theather == null)
         throw new InvalidOperationException("Oyun Bulunamadı.");
       TheatherDetailViewModel vm = _mapper.Map<TheatherDetailViewModel>(theather);
+      var stage = _uow.GetRepository<StageModel>().GetById(vm.StageId);
+      vm.Stage = stage;
       return vm;
     }
   }
@@ -28,7 +30,8 @@ namespace WebApi.DBOperations.TheatherOperations.Queries.GetTheatherDetail {
     public string? Description {get; set; }
     public int AvailableSeats {get; set; }
     public string? Date {get; set; }
-    public int? TheatherId {get; set; }
+    public int StageId {get; set; }
+    public StageModel? Stage {get; set; }
     public int Cost {get; set; }
   }
 }

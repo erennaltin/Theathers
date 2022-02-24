@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.DBOperations;
 using WebApi.DBOperations.StageOperations.Commands.CreateStage;
@@ -12,7 +13,7 @@ using static WebApi.DBOperations.StageOperations.Commands.CreateStage.CreateStag
 using static WebApi.DBOperations.StageOperations.Commands.UpdateStage.UpdateStageCommand;
 
 namespace WebApi.Controllers {
-  
+  [Authorize]
   [ApiController]
   [Route("[controller]s/[action]")]
   public class StageController : ControllerBase {

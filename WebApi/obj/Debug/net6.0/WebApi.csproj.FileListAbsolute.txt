@@ -60,3 +60,10 @@ D:/All/Dotnet/Theathers/WebApi/obj/Debug/net6.0/WebApi.genruntimeconfig.cache
 /Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/FluentValidation.dll
 /Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/Users/erenaltin/Desktop/All/DotNet/Theathers/WebApi/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll

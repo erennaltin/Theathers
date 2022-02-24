@@ -8,5 +8,6 @@ namespace WebApi.DBOperations {
 
     public DbSet<TheatherModel> Theathers {get; set; }
     public DbSet<StageModel> Stages {get; set; }
-  }
+    public DbSet<User> Users {get; set; } 
+    }
 }

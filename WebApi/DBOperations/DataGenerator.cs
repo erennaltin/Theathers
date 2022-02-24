@@ -29,7 +29,7 @@ namespace WebApi.DBOperations {
             Description= "DENEME",
             AvailableSeats= 64,
             Date= new DateTime(2022,02,18),
-            TheatherId= 1, // Baba Sahne
+            StageId= 1, // Baba Sahne
             Cost= 90, 
           },
           new TheatherModel {
@@ -37,7 +37,7 @@ namespace WebApi.DBOperations {
             Description= "DENEME",
             AvailableSeats= 64,
             Date= new DateTime(2022,02,19),
-            TheatherId= 1, // Baba Sahne
+            StageId= 1, // Baba Sahne
             Cost= 90,
           },
           new TheatherModel {
@@ -45,7 +45,7 @@ namespace WebApi.DBOperations {
             Description= "DENEME",
             AvailableSeats= 256,
             Date= new DateTime(2022,04,15),
-            TheatherId= 2, // Fişekhane
+            StageId= 2, // Fişekhane
             Cost= 150,
           }
         );

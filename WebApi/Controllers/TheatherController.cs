@@ -10,8 +10,11 @@ using WebApi.DBOperations.TheatherOperations.Commands.UpdateTheather;
 using static WebApi.DBOperations.TheatherOperations.Commands.UpdateTheather.UpdateTheatherCommand;
 using WebApi.DBOperations.TheatherOperations.Commands.DeleteTheather;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers {
+
+  [Authorize]
   [ApiController]
   [Route("[controller]s/[action]")]
   public class TheatherController : ControllerBase {
