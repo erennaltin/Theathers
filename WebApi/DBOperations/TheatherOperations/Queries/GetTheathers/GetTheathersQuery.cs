@@ -7,14 +7,12 @@ using WebApi.Repositories;
 
 namespace WebApi.DBOperations.TheatherOperations.Queries.GetTheathers {
   public class GetTheathersQuery {
-      private readonly TheathersDbContext _context;
       private readonly IMapper _mapper;
       private readonly UnitOfWork _uow;
-    public GetTheathersQuery(TheathersDbContext dBContext, IMapper mapper)
+    public GetTheathersQuery(TheathersDbContext context, IMapper mapper)
     {
-      _context = dBContext;
       _mapper = mapper;
-      _uow = new UnitOfWork(dBContext);
+      _uow = new UnitOfWork(context);
     }
 
       public object Handle() {

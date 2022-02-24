@@ -2,19 +2,18 @@ using WebApi.Models.Entities;
 using WebApi.Repositories;
 namespace WebApi.DBOperations.TheatherOperations.Commands.UpdateTheather {
   public class UpdateTheatherCommand {
-    private readonly TheathersDbContext _context;
     private readonly UnitOfWork _uow;
 
     public UpdateTheatherModel Model { get ; set; }
 
     public int TheatherId { get; set; }
     public UpdateTheatherCommand(TheathersDbContext context) {
-      _context = context;
       _uow = new UnitOfWork(context);
     }
 
     public void Handle(){
-      var theather = _uow.GetRepository<TheatherModel>().GetById(TheatherId);
+      var theatherRepo = _uow.GetRepository<TheatherModel>();
+      var theather = theatherRepo.GetById(TheatherId);
       if (theather == null) {
         throw new InvalidOperationException("Oyun Bulunamadı.");
       }
@@ -25,7 +24,7 @@ namespace WebApi.DBOperations.TheatherOperations.Commands.UpdateTheather {
       theather.Date = Model.Date != default ? Model.Date : theather.Date;
       theather.Cost = Model.Cost != default ? Model.Cost : theather.Cost;
      
-      _context.SaveChanges();
+      theatherRepo.Update(theather);
     }
 
     public class UpdateTheatherModel {

@@ -7,12 +7,10 @@ namespace WebApi.DBOperations.TheatherOperations.Commands.CreateTheather {
   public class CreateTheatherCommand {
 
     public CreateTheatherModel Model {get; set;}
-    private readonly TheathersDbContext _context;
     private readonly IMapper _mapper;
     private readonly UnitOfWork _uow;
     public CreateTheatherCommand(TheathersDbContext context, IMapper mapper)
     {
-      _context = context;
       _mapper = mapper;
       _uow = new UnitOfWork(context);
     }

@@ -4,13 +4,11 @@ using WebApi.Repositories;
 
 namespace WebApi.DBOperations.TheatherOperations.Queries.GetTheatherDetail {
   public class GetTheatherDetailQuery {
-    private readonly TheathersDbContext _context;
     private readonly IMapper _mapper;
     private readonly UnitOfWork _uow;
     public int TheatherId { get; set;}
 
     public GetTheatherDetailQuery(TheathersDbContext context, IMapper mapper) {
-      _context = context;
       _mapper = mapper;
       _uow = new UnitOfWork(context);
     }
