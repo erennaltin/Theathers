@@ -1,8 +1,8 @@
 using AutoMapper;
-using WebApi.Models;
-using static WebApi.DBOperations.TheatherOperations.CreateTheather.CreateTheatherCommand;
-using WebApi.DBOperations.TheatherOperations.GetTheatherDetail;
-using WebApi.DBOperations.TheatherOperations.GetTheathers;
+using WebApi.Models.Entities;
+using static WebApi.DBOperations.TheatherOperations.Commands.CreateTheather.CreateTheatherCommand;
+using WebApi.DBOperations.TheatherOperations.Queries.GetTheatherDetail;
+using WebApi.DBOperations.TheatherOperations.Queries.GetTheathers;
 
 
 namespace WebApi.DBOperations.MappingConfigs {

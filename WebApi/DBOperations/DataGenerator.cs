@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using WebApi.Models;
+using WebApi.Models.Entities;
 
 namespace WebApi.DBOperations {
   public class DataGenerator {
@@ -10,9 +10,22 @@ namespace WebApi.DBOperations {
           return;
         }
 
+        context.Stages.AddRange(
+          
+          new StageModel {
+            Name= "Baba Sahne",
+            Adress = "Deneme"
+          },
+          new StageModel {
+            Name="Fişekhane",
+            Adress = "Deneme2"
+          }
+        );
+
+
         context.Theathers.AddRange(
            new TheatherModel {
-             Name= "Bir Baba Hamlet",
+            Name= "Bir Baba Hamlet",
             Description= "DENEME",
             AvailableSeats= 64,
             Date= new DateTime(2022,02,18),

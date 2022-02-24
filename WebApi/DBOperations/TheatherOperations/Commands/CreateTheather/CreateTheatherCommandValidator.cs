@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.DBOperations.TheatherOperations.CreateTheather {
+namespace WebApi.DBOperations.TheatherOperations.Commands.CreateTheather {
   public class CreateTheatherCommandValidator : AbstractValidator<CreateTheatherCommand> {
     public CreateTheatherCommandValidator() {
       RuleFor(command => command.Model.AvailableSeats).GreaterThan(0);

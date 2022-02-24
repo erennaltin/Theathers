@@ -2,19 +2,18 @@ using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using WebApi.Models;
 using WebApi.DBOperations;
-using WebApi.DBOperations.TheatherOperations.GetTheathers;
-using WebApi.DBOperations.TheatherOperations.GetTheatherDetail;
-using WebApi.DBOperations.TheatherOperations.CreateTheather;
-using static WebApi.DBOperations.TheatherOperations.CreateTheather.CreateTheatherCommand;
-using WebApi.DBOperations.TheatherOperations.UpdateTheather;
-using static WebApi.DBOperations.TheatherOperations.UpdateTheather.UpdateTheatherCommand;
-using WebApi.DBOperations.TheatherOperations.DeleteTheather;
-using FluentValidation.Results;
+using WebApi.DBOperations.TheatherOperations.Queries.GetTheathers;
+using WebApi.DBOperations.TheatherOperations.Queries.GetTheatherDetail;
+using WebApi.DBOperations.TheatherOperations.Commands.CreateTheather;
+using static WebApi.DBOperations.TheatherOperations.Commands.CreateTheather.CreateTheatherCommand;
+using WebApi.DBOperations.TheatherOperations.Commands.UpdateTheather;
+using static WebApi.DBOperations.TheatherOperations.Commands.UpdateTheather.UpdateTheatherCommand;
+using WebApi.DBOperations.TheatherOperations.Commands.DeleteTheather;
 using FluentValidation;
 
 namespace WebApi.Controllers {
   [ApiController]
-  [Route("[controller]s")]
+  [Route("[controller]s/[action]")]
   public class TheatherController : ControllerBase {
     
     private readonly TheathersDbContext _context;

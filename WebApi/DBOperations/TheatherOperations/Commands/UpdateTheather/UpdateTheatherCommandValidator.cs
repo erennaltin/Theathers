@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.DBOperations.TheatherOperations.UpdateTheather {
+namespace WebApi.DBOperations.TheatherOperations.Commands.UpdateTheather {
   public class UpdateTheatherCommandValidator : AbstractValidator<UpdateTheatherCommand>{
     public UpdateTheatherCommandValidator(){
       RuleFor(command => command.TheatherId).GreaterThan(0);
